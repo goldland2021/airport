@@ -79,12 +79,12 @@ export default function Booking({
         </div>
         <form
           onSubmit={handleSubmit}
-          className="mt-10 grid gap-4 rounded-2xl border border-clay/60 bg-white p-6 shadow-soft md:grid-cols-2"
+          className="mt-10 grid gap-4 rounded-2xl border border-clay/60 bg-white p-4 md:p-6 shadow-soft md:grid-cols-2"
         >
           <label className="grid gap-2 text-sm">
             {fields.airport}
             <input
-              className="h-12 rounded-xl border border-clay/60 px-4 text-base"
+              className="h-12 w-full rounded-xl border border-clay/60 px-4 text-base focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember"
               placeholder={placeholders.airport}
               value={airport}
               onChange={(event) => setAirport(event.target.value)}
@@ -94,7 +94,7 @@ export default function Booking({
           <label className="grid gap-2 text-sm">
             {fields.flight}
             <input
-              className="h-12 rounded-xl border border-clay/60 px-4 text-base"
+              className="h-12 w-full rounded-xl border border-clay/60 px-4 text-base focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember"
               placeholder={placeholders.flight}
               value={flight}
               onChange={(event) => setFlight(event.target.value)}
@@ -104,7 +104,7 @@ export default function Booking({
           <label className="grid gap-2 text-sm">
             {fields.hotel}
             <input
-              className="h-12 rounded-xl border border-clay/60 px-4 text-base"
+              className="h-12 w-full rounded-xl border border-clay/60 px-4 text-base focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember"
               placeholder={placeholders.hotel}
               value={hotel}
               onChange={(event) => setHotel(event.target.value)}
@@ -114,7 +114,7 @@ export default function Booking({
           <label className="grid gap-2 text-sm">
             {fields.passengers}
             <input
-              className="h-12 rounded-xl border border-clay/60 px-4 text-base"
+              className="h-12 w-full rounded-xl border border-clay/60 px-4 text-base focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember"
               placeholder={placeholders.passengers}
               value={passengers}
               onChange={(event) => setPassengers(event.target.value)}
@@ -124,17 +124,17 @@ export default function Booking({
           <label className="grid gap-2 text-sm">
             {fields.luggage}
             <input
-              className="h-12 rounded-xl border border-clay/60 px-4 text-base"
+              className="h-12 w-full rounded-xl border border-clay/60 px-4 text-base focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember"
               placeholder={placeholders.luggage}
               value={luggage}
               onChange={(event) => setLuggage(event.target.value)}
               required
             />
           </label>
-          <div className="flex items-end">
+          <div className="flex items-end md:col-span-2">
             <button
               type="submit"
-              className="h-12 w-full rounded-xl bg-ink text-white transition hover:bg-ink/90"
+              className="h-12 w-full rounded-xl bg-ink text-white transition hover:bg-ink/90 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-ember/30"
             >
               {buttonLabel}
             </button>

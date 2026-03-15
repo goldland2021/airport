@@ -64,7 +64,7 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
             
             {/* 预约接送表单 - 放在最前面 */}
             <div className="mb-12">
-              <div className="card p-6 md:p-8 shadow-lift border-2 border-ember/20">
+              <div className="card p-4 sm:p-6 md:p-8 shadow-lift border-2 border-ember/20 mx-[-0.5rem] sm:mx-0">
                 <Booking
                   title={dict.booking.title}
                   subtitle={dict.booking.subtitle}
@@ -74,8 +74,8 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
                   messageHeader={dict.booking.messageHeader}
                 />
                 
-                <div className="mt-8 pt-6 border-t border-clay/40">
-                  <p className="text-sm text-ink/60 text-center">
+                <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-clay/40">
+                  <p className="text-xs sm:text-sm text-ink/60 text-center px-2">
                     {locale === "zh" ? "提交后将在WhatsApp中打开，直接与司机沟通" :
                      locale === "ja" ? "送信後、WhatsAppで開き、ドライバーと直接連絡" :
                      "Opens in WhatsApp after submission to chat directly with driver"}
@@ -87,20 +87,20 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
             {/* 服务承诺和等候时间政策 */}
             <div className="space-y-8">
               {/* 等候时间政策横幅 */}
-              <div className="card p-6">
-                <h3 className="text-xl font-semibold mb-4">
+              <div className="card p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
                   {locale === "zh" ? "免费等候时间政策" :
                    locale === "ja" ? "無料待機時間ポリシー" :
                    "Free Waiting Time Policy"}
                 </h3>
                 <WaitingTimeBanner locale={locale} />
-                <div className="mt-6 p-4 bg-ember/5 rounded-lg">
-                  <p className="text-sm text-ink/70">
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-ember/5 rounded-lg">
+                  <p className="text-xs sm:text-sm text-ink/70">
                     {locale === "zh" ? "• 等候时间从飞机降落时间（接机）或约定时间（送机）开始计算" :
                      locale === "ja" ? "• 待機時間は飛行機着陸時間（お迎え）または約束時間（お見送り）から計算" :
                      "• Waiting time starts from flight landing (pickup) or scheduled time (drop-off)"}
                   </p>
-                  <p className="text-sm text-ink/70 mt-2">
+                  <p className="text-xs sm:text-sm text-ink/70 mt-1 sm:mt-2">
                     {locale === "zh" ? "• 航班延误无需担心，司机会根据实际降落时间调整" :
                      locale === "ja" ? "• フライト遅延も安心、ドライバーが実際の着陸時間に合わせて調整" :
                      "• No worries about flight delays, driver adjusts based on actual landing time"}
@@ -109,24 +109,24 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
               </div>
               
               {/* 服务特性卡片 */}
-              <div className="card p-6">
-                <h3 className="text-xl font-semibold mb-6">
+              <div className="card p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">
                   {locale === "zh" ? "我们的服务承诺" :
                    locale === "ja" ? "サービス保証" :
                    "Our Service Promise"}
                 </h3>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3 p-4 bg-white border border-clay/40 rounded-xl">
-                    <div className="w-10 h-10 rounded-full bg-ember/10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-ember text-lg">⏱️</span>
+                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-white border border-clay/40 rounded-lg sm:rounded-xl">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-ember/10 flex items-center justify-center flex-shrink-0">
+                      <span className="text-ember text-base sm:text-lg">⏱️</span>
                     </div>
                     <div>
-                      <p className="font-medium">
+                      <p className="font-medium text-sm sm:text-base">
                         {locale === "zh" ? "准时到达" :
                          locale === "ja" ? "時間厳守" :
                          "On-time Arrival"}
                       </p>
-                      <p className="text-sm text-ink/60 mt-1">
+                      <p className="text-xs sm:text-sm text-ink/60 mt-0.5 sm:mt-1">
                         {locale === "zh" ? "司机提前到达等候，绝不迟到" :
                          locale === "ja" ? "ドライバーが事前に到着、絶対に遅れない" :
                          "Driver arrives early, never late"}
@@ -134,17 +134,17 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3 p-4 bg-white border border-clay/40 rounded-xl">
-                    <div className="w-10 h-10 rounded-full bg-ember/10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-ember text-lg">💰</span>
+                  <div className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-white border border-clay/40 rounded-lg sm:rounded-xl">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-ember/10 flex items-center justify-center flex-shrink-0">
+                      <span className="text-ember text-base sm:text-lg">💰</span>
                     </div>
                     <div>
-                      <p className="font-medium">
+                      <p className="font-medium text-sm sm:text-base">
                         {locale === "zh" ? "透明价格" :
                          locale === "ja" ? "透明な価格" :
                          "Transparent Pricing"}
                       </p>
-                      <p className="text-sm text-ink/60 mt-1">
+                      <p className="text-xs sm:text-sm text-ink/60 mt-0.5 sm:mt-1">
                         {locale === "zh" ? "固定价格，无隐藏费用" :
                          locale === "ja" ? "固定料金、隠れた費用なし" :
                          "Fixed pricing, no hidden fees"}
@@ -152,17 +152,17 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3 p-4 bg-white border border-clay/40 rounded-xl">
-                    <div className="w-10 h-10 rounded-full bg-ember/10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-ember text-lg">👨‍✈️</span>
+                  <div className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-white border border-clay/40 rounded-lg sm:rounded-xl">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-ember/10 flex items-center justify-center flex-shrink-0">
+                      <span className="text-ember text-base sm:text-lg">👨‍✈️</span>
                     </div>
                     <div>
-                      <p className="font-medium">
+                      <p className="font-medium text-sm sm:text-base">
                         {locale === "zh" ? "英语司机" :
                          locale === "ja" ? "英語対応ドライバー" :
                          "English Driver"}
                       </p>
-                      <p className="text-sm text-ink/60 mt-1">
+                      <p className="text-xs sm:text-sm text-ink/60 mt-0.5 sm:mt-1">
                         {locale === "zh" ? "专业英语司机，沟通无障碍" :
                          locale === "ja" ? "プロの英語対応ドライバー、スムーズなコミュニケーション" :
                          "Professional English-speaking driver, smooth communication"}
@@ -170,17 +170,17 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3 p-4 bg-white border border-clay/40 rounded-xl">
-                    <div className="w-10 h-10 rounded-full bg-ember/10 flex items-center justify-center flex-shrink-0">
-                      <span className="text-ember text-lg">📱</span>
+                  <div className="flex items-start gap-2 sm:gap-3 p-3 sm:p-4 bg-white border border-clay/40 rounded-lg sm:rounded-xl">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-ember/10 flex items-center justify-center flex-shrink-0">
+                      <span className="text-ember text-base sm:text-lg">📱</span>
                     </div>
                     <div>
-                      <p className="font-medium">
+                      <p className="font-medium text-sm sm:text-base">
                         {locale === "zh" ? "即时回复" :
                          locale === "ja" ? "即時返信" :
                          "Instant Reply"}
                       </p>
-                      <p className="text-sm text-ink/60 mt-1">
+                      <p className="text-xs sm:text-sm text-ink/60 mt-0.5 sm:mt-1">
                         {locale === "zh" ? "WhatsApp快速响应，24小时服务" :
                          locale === "ja" ? "WhatsAppで迅速対応、24時間サービス" :
                          "Quick response on WhatsApp, 24/7 service"}
