@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Booking from "@/components/Booking";
@@ -267,11 +267,11 @@ export default function TestMobilePage() {
           <div className="mt-6 p-4 bg-amber-50 rounded-lg">
             <h3 className="font-semibold mb-2">🔧 技术修复详情</h3>
             <div className="text-sm space-y-1">
-              <p><code>className="h-12 w-full rounded-xl border..."</code> - 添加 w-full 确保宽度</p>
-              <p><code>className="card p-4 sm:p-6 md:p-8"</code> - 响应式内边距</p>
-              <p><code>className="mx-[-0.5rem] sm:mx-0"</code> - 手机端负外边距补偿</p>
-              <p><code>className="text-xs sm:text-sm"</code> - 响应式字体大小</p>
-              <p><code>className="gap-3 sm:gap-4"</code> - 响应式间距</p>
+              <p><code>{'className="h-12 w-full rounded-xl border..."'}</code> - 添加 w-full 确保宽度</p>
+              <p><code>{'className="card p-4 sm:p-6 md:p-8"'}</code> - 响应式内边距</p>
+              <p><code>{'className="mx-[-0.5rem] sm:mx-0"'}</code> - 手机端负外边距补偿</p>
+              <p><code>{'className="text-xs sm:text-sm"'}</code> - 响应式字体大小</p>
+              <p><code>{'className="gap-3 sm:gap-4"'}</code> - 响应式间距</p>
             </div>
           </div>
         </div>

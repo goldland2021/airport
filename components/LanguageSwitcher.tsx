@@ -12,6 +12,8 @@ const labels: Record<string, string> = {
 
 export default function LanguageSwitcher() {
   const pathname = usePathname() || "/";
+  const currentLocaleMatch = pathname.match(/^\/(en|ja|zh)(?=\/|$)/);
+  const currentLocale = currentLocaleMatch?.[1] ?? "en";
   const basePath = pathname.replace(/^\/(en|ja|zh)(?=\/|$)/, "");
 
   return (
@@ -24,8 +26,13 @@ export default function LanguageSwitcher() {
           <Link
             key={locale}
             href={href}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-clay/60 text-xs font-semibold text-ink/80 transition hover:bg-sand"
+            className={`flex h-8 w-8 items-center justify-center rounded-full border text-xs font-semibold transition ${
+              locale === currentLocale
+                ? "border-ink bg-ink text-white shadow-soft"
+                : "border-clay/60 text-ink/80 hover:bg-sand"
+            }`}
             aria-label={`Switch language to ${locale}`}
+            aria-current={locale === currentLocale ? "page" : undefined}
           >
             {label}
           </Link>

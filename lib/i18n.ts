@@ -49,6 +49,7 @@ export type Dictionary = {
     fields: {
       airport: string;
       flight: string;
+      landingTime: string;
       hotel: string;
       passengers: string;
       luggage: string;
@@ -56,6 +57,7 @@ export type Dictionary = {
     placeholders: {
       airport: string;
       flight: string;
+      landingTime: string;
       hotel: string;
       passengers: string;
       luggage: string;
@@ -179,10 +181,11 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     booking: {
       title: "Book Your Transfer",
-      subtitle: "Send your flight and hotel details to get a fast quote on WhatsApp.",
+      subtitle: "Send your flight, landing time, and hotel details to get a fast quote on WhatsApp.",
       fields: {
         airport: "Airport",
         flight: "Flight number",
+        landingTime: "Landing time",
         hotel: "Hotel or address",
         passengers: "Passengers",
         luggage: "Luggage"
@@ -190,6 +193,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       placeholders: {
         airport: "Narita or Haneda",
         flight: "JL123",
+        landingTime: "May 3, 4:30 PM",
         hotel: "Shinjuku hotel",
         passengers: "2",
         luggage: "3 suitcases"
@@ -290,10 +294,11 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     booking: {
       title: "送迎を予約",
-      subtitle: "フライトとホテル情報を送ると、WhatsAppですぐに見積もりできます。",
+      subtitle: "フライト、到着時刻、ホテル情報を送ると、WhatsAppですぐに見積もりできます。",
       fields: {
         airport: "空港",
         flight: "便名",
+        landingTime: "到着時刻",
         hotel: "ホテルまたは住所",
         passengers: "人数",
         luggage: "荷物"
@@ -301,6 +306,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       placeholders: {
         airport: "成田または羽田",
         flight: "JL123",
+        landingTime: "5月3日 16:30",
         hotel: "新宿のホテル",
         passengers: "2",
         luggage: "スーツケース3個"
@@ -402,10 +408,11 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     booking: {
       title: "预约接送",
-      subtitle: "发送航班、酒店和人数信息，我们会通过 WhatsApp 快速报价。",
+      subtitle: "发送航班、落地时间、酒店和人数信息，我们会通过 WhatsApp 快速报价。",
       fields: {
         airport: "机场",
         flight: "航班号",
+        landingTime: "落地时间",
         hotel: "酒店或地址",
         passengers: "人数",
         luggage: "行李"
@@ -413,6 +420,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       placeholders: {
         airport: "成田或羽田",
         flight: "JL123",
+        landingTime: "5月3日 16:30",
         hotel: "新宿酒店",
         passengers: "2",
         luggage: "3个行李箱"

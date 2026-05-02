@@ -12,6 +12,7 @@ type BookingProps = {
   fields?: {
     airport: string;
     flight: string;
+    landingTime?: string;
     hotel: string;
     passengers: string;
     luggage: string;
@@ -19,6 +20,7 @@ type BookingProps = {
   placeholders?: {
     airport: string;
     flight: string;
+    landingTime?: string;
     hotel: string;
     passengers: string;
     luggage: string;
@@ -34,6 +36,7 @@ export default function Booking({
   fields = {
     airport: "Airport",
     flight: "Flight number",
+    landingTime: "Landing time",
     hotel: "Hotel",
     passengers: "Passengers",
     luggage: "Luggage"
@@ -41,6 +44,7 @@ export default function Booking({
   placeholders = {
     airport: "Narita or Haneda",
     flight: "JL123",
+    landingTime: "May 3, 4:30 PM",
     hotel: "Shinjuku Hotel",
     passengers: "2",
     luggage: "3 suitcases"
@@ -50,9 +54,12 @@ export default function Booking({
 }: BookingProps) {
   const [airport, setAirport] = useState("");
   const [flight, setFlight] = useState("");
+  const [landingTime, setLandingTime] = useState("");
   const [hotel, setHotel] = useState("");
   const [passengers, setPassengers] = useState("");
   const [luggage, setLuggage] = useState("");
+  const landingTimeLabel = fields.landingTime ?? "Landing time";
+  const landingTimePlaceholder = placeholders.landingTime ?? "May 3, 4:30 PM";
 
   const message = useMemo(() => {
     return [
@@ -60,11 +67,12 @@ export default function Booking({
       "",
       `${fields.airport}: ${airport}`,
       `${fields.flight}: ${flight}`,
+      `${landingTimeLabel}: ${landingTime}`,
       `${fields.hotel}: ${hotel}`,
       `${fields.passengers}: ${passengers}`,
       `${fields.luggage}: ${luggage}`
     ].join("\n");
-  }, [airport, flight, hotel, passengers, luggage, fields, messageHeader]);
+  }, [airport, flight, landingTime, landingTimeLabel, hotel, passengers, luggage, fields, messageHeader]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -99,6 +107,16 @@ export default function Booking({
               placeholder={placeholders.flight}
               value={flight}
               onChange={(event) => setFlight(event.target.value)}
+              required
+            />
+          </label>
+          <label className="grid gap-2 text-sm">
+            {landingTimeLabel}
+            <input
+              className="h-12 w-full rounded-xl border border-clay/60 px-4 text-base focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember"
+              placeholder={landingTimePlaceholder}
+              value={landingTime}
+              onChange={(event) => setLandingTime(event.target.value)}
               required
             />
           </label>

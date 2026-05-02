@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Hero from "@/components/Hero";
@@ -213,7 +213,7 @@ export default function PreviewNewLayoutPage() {
         <div className="mb-8 p-4 bg-white rounded-lg border">
           <h2 className="text-xl font-semibold mb-2">布局说明</h2>
           <p className="text-ink/70">
-            已将"预约接送"表单调整到第二行，放在"东京机场接送"标题下面。
+            已将&quot;预约接送&quot;表单调整到第二行，放在&quot;东京机场接送&quot;标题下面。
             表单现在更加突出，用户无需滚动就能看到并立即预订。
           </p>
         </div>
