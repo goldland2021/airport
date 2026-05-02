@@ -8,6 +8,7 @@ import ContactInfo from "./ContactInfo";
 type BookingProps = {
   title?: string;
   subtitle?: string;
+  variant?: "section" | "embedded";
   fields?: {
     airport: string;
     flight: string;
@@ -29,6 +30,7 @@ type BookingProps = {
 export default function Booking({
   title = "Book Your Transfer",
   subtitle = "Send your trip details and get a fast quote on WhatsApp.",
+  variant = "section",
   fields = {
     airport: "Airport",
     flight: "Flight number",
@@ -70,9 +72,8 @@ export default function Booking({
     window.open(href, "_blank", "noopener,noreferrer");
   };
 
-  return (
-    <section className="section bg-sand">
-      <div className="container mx-auto px-4">
+  const content = (
+    <>
         <div className="max-w-3xl">
           <h2 className="section-title">{title}</h2>
           <p className="section-subtitle">{subtitle}</p>
@@ -146,6 +147,17 @@ export default function Booking({
             Send details via form or message directly on WhatsApp
           </p>
         </div>
+    </>
+  );
+
+  if (variant === "embedded") {
+    return <div>{content}</div>;
+  }
+
+  return (
+    <section className="section bg-sand">
+      <div className="container mx-auto px-4">
+        {content}
       </div>
     </section>
   );

@@ -2,14 +2,17 @@ export type Locale = "en" | "ja" | "zh";
 
 export const locales: Locale[] = ["en", "ja", "zh"];
 
-type Dictionary = {
+export type Dictionary = {
   meta: {
     homeTitle: string;
     homeDescription: string;
     keywords: string[];
     naritaTitle: string;
+    naritaDescription: string;
     hanedaTitle: string;
+    hanedaDescription: string;
     driverTitle: string;
+    driverDescription: string;
   };
   hero: {
     title: string;
@@ -83,21 +86,21 @@ type Dictionary = {
 const commonVehicles = [
   {
     name: "Luxury Sedan",
-    passengers: "3 passengers",
+    passengers: "Up to 3 passengers",
     image: "/images/sedan.jpg",
-    alt: "Luxury sedan airport transfer"
+    alt: "Luxury sedan for Tokyo airport transfer"
   },
   {
     name: "Toyota Alphard",
-    passengers: "5 passengers",
+    passengers: "Up to 5 passengers",
     image: "/images/alphard.jpg",
-    alt: "Toyota Alphard airport transfer"
+    alt: "Toyota Alphard private airport pickup in Tokyo"
   },
   {
     name: "Toyota Hiace",
-    passengers: "8 passengers",
+    passengers: "Up to 8 passengers",
     image: "/images/hiace.jpg",
-    alt: "Toyota Hiace airport transfer"
+    alt: "Toyota Hiace van for Narita and Haneda airport transfer"
   }
 ];
 
@@ -106,39 +109,48 @@ const dictionaries: Record<Locale, Dictionary> = {
     meta: {
       homeTitle: "Tokyo Airport Transfer | Narita & Haneda Private Pickup",
       homeDescription:
-        "Private airport transfer service in Tokyo. Pickup from Narita and Haneda airport with English speaking drivers.",
+        "Book a private Tokyo airport transfer from Narita or Haneda. Fixed pricing, meet-and-greet pickup, 24/7 WhatsApp support, and English-speaking drivers.",
       keywords: [
-        "tokyo airport transfer",
-        "narita airport transfer",
-        "haneda airport transfer",
-        "tokyo private driver"
+        "Tokyo airport transfer",
+        "Narita airport transfer",
+        "Haneda airport transfer",
+        "Tokyo airport pickup",
+        "Tokyo private driver",
+        "Narita to Tokyo private car",
+        "Haneda to Tokyo private car"
       ],
       naritaTitle: "Narita Airport Transfer to Tokyo | Private Pickup",
+      naritaDescription:
+        "Private Narita Airport transfer to Tokyo hotels, Shinjuku, Shibuya, Ginza, and Tokyo Disney Resort. Meet-and-greet pickup and fixed quotes on WhatsApp.",
       hanedaTitle: "Haneda Airport Transfer to Tokyo | Private Car",
-      driverTitle: "Tokyo Private Driver Service"
+      hanedaDescription:
+        "Fast private Haneda Airport transfer to central Tokyo hotels. Door-to-door pickup, English-speaking driver, and transparent pricing.",
+      driverTitle: "Tokyo Private Driver Service | Airport, Tours & Charters",
+      driverDescription:
+        "Hire a Tokyo private driver for airport transfers, city tours, Mt Fuji day trips, and hourly charters with clean vehicles and WhatsApp booking."
     },
     hero: {
       title: "Tokyo Airport Transfer",
-      subtitle: "Private airport pickup from Narita Airport and Haneda Airport.",
+      subtitle: "Private airport pickup from Narita Airport and Haneda Airport to Tokyo hotels, homes, and cruise terminals.",
       features: [
-        "24 hour service",
-        "English speaking driver",
+        "24 hour airport transfer service",
+        "English-speaking driver",
         "Meet and greet at arrival gate",
         "Fixed transparent pricing",
-        "Pickup: 90 min free waiting (from flight landing)",
+        "Pickup: 90 min free waiting from flight landing",
         "Drop-off: 30 min free waiting"
       ],
       cta: "Get Quote on WhatsApp",
-      imageAlt: "Tokyo airport transfer luxury pickup"
+      imageAlt: "Tokyo airport transfer private pickup vehicle"
     },
     services: {
       title: "Airport Transfer Services",
-      subtitle: "Reliable, private transport with fixed pricing and meet-and-greet service.",
+      subtitle: "Reliable private transport between Tokyo, Narita Airport, and Haneda Airport.",
       items: [
-        "Narita Airport → Tokyo Hotel",
-        "Haneda Airport → Tokyo Hotel",
-        "Tokyo → Narita Airport",
-        "Tokyo → Haneda Airport"
+        "Narita Airport to Tokyo hotel",
+        "Haneda Airport to Tokyo hotel",
+        "Tokyo hotel to Narita Airport",
+        "Tokyo hotel to Haneda Airport"
       ],
       itemNote: "Door-to-door, on time, and stress free."
     },
@@ -146,14 +158,14 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: "Price Guide",
       subtitle: "Fixed transparent pricing with no surprise fees.",
       items: [
-        { route: "Narita → Tokyo", price: "from $120+" },
-        { route: "Haneda → Tokyo", price: "from $80+" }
+        { route: "Narita to Tokyo", price: "from $120+" },
+        { route: "Haneda to Tokyo", price: "from $80+" }
       ],
-      itemNote: "Includes meet and greet."
+      itemNote: "Includes meet-and-greet pickup."
     },
     vehicles: {
       title: "Vehicles",
-      subtitle: "Spacious, clean vehicles suited for solo travelers, families, and groups.",
+      subtitle: "Clean, spacious vehicles for solo travelers, families, and groups.",
       items: commonVehicles
     },
     reviews: {
@@ -167,245 +179,264 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     booking: {
       title: "Book Your Transfer",
-      subtitle: "Send your trip details and get a fast quote on WhatsApp.",
+      subtitle: "Send your flight and hotel details to get a fast quote on WhatsApp.",
       fields: {
         airport: "Airport",
         flight: "Flight number",
-        hotel: "Hotel",
+        hotel: "Hotel or address",
         passengers: "Passengers",
         luggage: "Luggage"
       },
       placeholders: {
         airport: "Narita or Haneda",
         flight: "JL123",
-        hotel: "Shinjuku Hotel",
+        hotel: "Shinjuku hotel",
         passengers: "2",
         luggage: "3 suitcases"
       },
       button: "Send on WhatsApp",
-      messageHeader: "Hello I need airport transfer"
+      messageHeader: "Hello, I need a Tokyo airport transfer quote."
     },
     narita: {
       heroTitle: "Narita Airport Transfer to Tokyo",
-      heroSubtitle: "Private pickup from Narita Airport with fixed pricing and English speaking drivers.",
+      heroSubtitle: "Private pickup from Narita Airport with fixed pricing, meet-and-greet service, and English-speaking drivers.",
       sectionTitle: "Narita Airport transfer",
-      travelTime: "Travel time from Narita to Tokyo is typically 60–90 minutes depending on traffic."
+      travelTime: "Travel time from Narita Airport to central Tokyo is typically 60 to 90 minutes depending on traffic."
     },
     haneda: {
       heroTitle: "Haneda Airport Transfer to Tokyo",
-      heroSubtitle: "Fast private pickup from Haneda Airport with meet and greet service.",
+      heroSubtitle: "Fast private pickup from Haneda Airport to Tokyo hotels with meet-and-greet service.",
       sectionTitle: "Haneda airport pickup",
-      travelTime: "Travel time from Haneda to Tokyo is typically 30–40 minutes."
+      travelTime: "Travel time from Haneda Airport to central Tokyo is typically 30 to 60 minutes depending on traffic."
     },
     driver: {
       heroTitle: "Tokyo Private Driver Service",
-      heroSubtitle: "Flexible private car service for tours, day trips, and hourly charters.",
+      heroSubtitle: "Flexible private car service for airport transfers, Tokyo tours, day trips, and hourly charters.",
       servicesTitle: "Private Driver Services",
       services: ["Tokyo city tour", "Mt Fuji day trip", "Hourly private car charter"]
     }
   },
   ja: {
     meta: {
-      homeTitle: "東京空港送迎 | 成田・羽田プライベート送迎",
+      homeTitle: "東京空港送迎 | 成田・羽田のプライベート送迎",
       homeDescription:
-        "東京の空港送迎サービス。成田・羽田空港から英語対応ドライバーが送迎します。",
+        "成田空港・羽田空港から東京市内ホテルまでのプライベート空港送迎。固定料金、到着ゲートでのお迎え、英語対応ドライバー、WhatsAppで簡単予約。",
       keywords: [
         "東京 空港送迎",
-        "成田 空港送迎",
-        "羽田 空港送迎",
-        "東京 プライベートドライバー"
+        "成田空港 送迎",
+        "羽田空港 送迎",
+        "東京 空港ピックアップ",
+        "東京 プライベートドライバー",
+        "成田 東京 ハイヤー",
+        "羽田 東京 ハイヤー"
       ],
-      naritaTitle: "成田空港から東京への送迎 | プライベートピックアップ",
+      naritaTitle: "成田空港から東京への送迎 | プライベート空港ピックアップ",
+      naritaDescription:
+        "成田空港から東京市内ホテル、新宿、渋谷、銀座、東京ディズニーリゾートまでのプライベート送迎。固定料金でWhatsApp予約。",
       hanedaTitle: "羽田空港から東京への送迎 | プライベートカー",
-      driverTitle: "東京プライベートドライバーサービス"
+      hanedaDescription:
+        "羽田空港から東京市内ホテルまでのスムーズなプライベート送迎。英語対応ドライバー、明朗な固定料金。",
+      driverTitle: "東京プライベートドライバー | 空港送迎・観光・貸切",
+      driverDescription:
+        "東京のプライベートドライバーサービス。空港送迎、市内観光、富士山日帰り、時間貸切に対応。"
     },
     hero: {
       title: "東京空港送迎",
-      subtitle: "成田空港・羽田空港からのプライベート送迎。",
+      subtitle: "成田空港・羽田空港から東京のホテル、ご自宅、クルーズターミナルまでのプライベート送迎。",
       features: [
         "24時間対応",
         "英語対応ドライバー",
         "到着ゲートでお出迎え",
         "明朗な固定料金",
-        "空港お迎え: 90分無料待機（飛行機着陸時から）",
-        "空港お見送り: 30分無料待機"
+        "お迎え: 到着後90分まで無料待機",
+        "お送り: 30分まで無料待機"
       ],
       cta: "WhatsAppで見積もり",
-      imageAlt: "東京 空港送迎のプライベートピックアップ"
+      imageAlt: "東京空港送迎のプライベート車両"
     },
     services: {
       title: "空港送迎サービス",
-      subtitle: "固定料金とミート＆グリート付きの安心プライベート送迎。",
+      subtitle: "東京、成田空港、羽田空港を結ぶ安心のプライベート送迎。",
       items: [
-        "成田空港 → 東京ホテル",
-        "羽田空港 → 東京ホテル",
-        "東京 → 成田空港",
-        "東京 → 羽田空港"
+        "成田空港から東京ホテル",
+        "羽田空港から東京ホテル",
+        "東京ホテルから成田空港",
+        "東京ホテルから羽田空港"
       ],
-      itemNote: "ドアツードアで安心してご利用いただけます。"
+      itemNote: "ドアツードアで、時間通りに安心してご利用いただけます。"
     },
     pricing: {
       title: "料金目安",
-      subtitle: "追加料金なしの明朗価格。",
+      subtitle: "追加料金が分かりやすい固定料金制です。",
       items: [
-        { route: "成田 → 東京", price: "$120 から" },
-        { route: "羽田 → 東京", price: "$80 から" }
+        { route: "成田から東京", price: "$120+" },
+        { route: "羽田から東京", price: "$80+" }
       ],
-      itemNote: "ミート＆グリート込み。"
+      itemNote: "到着ゲートでのお迎えを含みます。"
     },
     vehicles: {
       title: "車両",
-      subtitle: "お一人からグループまで快適にご利用いただけます。",
+      subtitle: "お一人様、ご家族、グループ旅行まで快適にご利用いただけます。",
       items: commonVehicles
     },
     reviews: {
       title: "お客様の声",
-      subtitle: "海外からのお客様にも高評価をいただいています。",
+      subtitle: "海外からのお客様にも高く評価されています。",
       items: [
-        "名前入りの看板を持って待っていてくれました。",
-        "空港送迎がとてもスムーズでした。",
-        "車内が清潔でプロのドライバーでした。"
+        "名前入りのサインを持って待っていてくれました。",
+        "空港からホテルまでとてもスムーズでした。",
+        "車内が清潔でドライバーも丁寧でした。"
       ]
     },
     booking: {
-      title: "送迎を予約する",
-      subtitle: "詳細を送って、WhatsAppで素早く見積もりを受け取れます。",
+      title: "送迎を予約",
+      subtitle: "フライトとホテル情報を送ると、WhatsAppですぐに見積もりできます。",
       fields: {
         airport: "空港",
         flight: "便名",
-        hotel: "ホテル",
+        hotel: "ホテルまたは住所",
         passengers: "人数",
         luggage: "荷物"
       },
       placeholders: {
-        airport: "成田 or 羽田",
+        airport: "成田または羽田",
         flight: "JL123",
         hotel: "新宿のホテル",
         passengers: "2",
         luggage: "スーツケース3個"
       },
       button: "WhatsAppで送信",
-      messageHeader: "空港送迎をお願いします"
+      messageHeader: "こんにちは。東京空港送迎の見積もりをお願いします。"
     },
     narita: {
       heroTitle: "成田空港から東京への送迎",
-      heroSubtitle: "成田空港からのプライベート送迎。固定料金と英語対応ドライバー。",
+      heroSubtitle: "成田空港から東京市内まで、固定料金のプライベート送迎。到着ゲートでお迎えします。",
       sectionTitle: "成田空港送迎",
-      travelTime: "成田から東京までは通常 60〜90 分程度です。"
+      travelTime: "成田空港から東京中心部までは、交通状況により通常60分から90分ほどです。"
     },
     haneda: {
       heroTitle: "羽田空港から東京への送迎",
-      heroSubtitle: "羽田空港からの迅速なプライベート送迎。到着ゲートでお出迎え。",
+      heroSubtitle: "羽田空港から東京のホテルまで、スムーズなプライベート送迎。",
       sectionTitle: "羽田空港送迎",
-      travelTime: "羽田から東京までは通常 30〜40 分程度です。"
+      travelTime: "羽田空港から東京中心部までは、交通状況により通常30分から60分ほどです。"
     },
     driver: {
-      heroTitle: "東京プライベートドライバーサービス",
-      heroSubtitle: "観光や日帰り旅行、時間貸しに対応するプライベートカー。",
+      heroTitle: "東京プライベートドライバー",
+      heroSubtitle: "空港送迎、東京観光、日帰り旅行、時間貸切に対応するプライベートカーサービス。",
       servicesTitle: "プライベートドライバーサービス",
-      services: ["東京市内ツアー", "富士山日帰り旅行", "時間貸しチャーター"]
+      services: ["東京市内観光", "富士山日帰り旅行", "時間貸切チャーター"]
     }
   },
   zh: {
     meta: {
-      homeTitle: "东京机场接送 | 成田与羽田专车",
+      homeTitle: "东京机场接送 | 成田与羽田机场中文包车",
       homeDescription:
-        "东京机场接送服务。成田与羽田机场专车接送，英文司机服务。",
+        "东京机场接送服务，覆盖成田机场和羽田机场到东京酒店。专车接机、举牌迎接、固定报价、WhatsApp 快速联系，可中文沟通。",
       keywords: [
-        "东京 机场接送",
-        "成田 机场接送",
-        "羽田 机场接送",
-        "东京 私人司机"
+        "东京机场接送",
+        "东京接机",
+        "成田机场接送",
+        "羽田机场接送",
+        "东京包车",
+        "东京中文司机",
+        "成田到东京包车",
+        "羽田到东京包车"
       ],
-      naritaTitle: "成田机场到东京接送 | 专车接机",
-      hanedaTitle: "羽田机场到东京接送 | 私人包车",
-      driverTitle: "东京私人司机服务"
+      naritaTitle: "成田机场到东京接送 | 东京中文包车接机",
+      naritaDescription:
+        "成田机场到东京酒店、新宿、涩谷、银座、迪士尼的专车接送服务。举牌接机，固定报价，WhatsApp 快速预约。",
+      hanedaTitle: "羽田机场到东京接送 | 私人专车接机",
+      hanedaDescription:
+        "羽田机场到东京市区酒店的专车接送服务。准时接机、举牌迎接、价格透明，可通过 WhatsApp 预约。",
+      driverTitle: "东京中文包车司机 | 接送机、旅游与小时包车",
+      driverDescription:
+        "东京私人包车司机服务，适合机场接送、市区观光、富士山一日游和小时包车。车辆干净，WhatsApp 快速沟通。"
     },
     hero: {
       title: "东京机场接送",
-      subtitle: "成田机场与羽田机场专车接送。",
+      subtitle: "成田机场、羽田机场到东京酒店、民宿、邮轮码头的私人专车接送服务。",
       features: [
-        "24小时服务",
-        "英文司机",
+        "24小时机场接送",
+        "可中文和英文沟通",
         "到达口举牌接机",
-        "透明固定价格",
-        "接机免费等候90分钟（从飞机降落算起）",
-        "送机免费等候30分钟"
+        "固定报价，价格透明",
+        "接机免费等待90分钟，从航班落地算起",
+        "送机免费等待30分钟"
       ],
       cta: "WhatsApp 获取报价",
-      imageAlt: "东京机场接送专车服务"
+      imageAlt: "东京机场接送私人专车"
     },
     services: {
       title: "机场接送服务",
-      subtitle: "固定价格，举牌接机，安心省心。",
+      subtitle: "提供东京、成田机场、羽田机场之间的专车接送。",
       items: [
-        "成田机场 → 东京酒店",
-        "羽田机场 → 东京酒店",
-        "东京 → 成田机场",
-        "东京 → 羽田机场"
+        "成田机场到东京酒店",
+        "羽田机场到东京酒店",
+        "东京酒店到成田机场",
+        "东京酒店到羽田机场"
       ],
-      itemNote: "点对点直达，准时安心。"
+      itemNote: "点对点直达，准时省心。"
     },
     pricing: {
       title: "价格参考",
-      subtitle: "透明固定价格，无隐藏费用。",
+      subtitle: "固定透明报价，无隐藏费用。",
       items: [
-        { route: "成田 → 东京", price: "$120 起" },
-        { route: "羽田 → 东京", price: "$80 起" }
+        { route: "成田到东京", price: "$120+" },
+        { route: "羽田到东京", price: "$80+" }
       ],
-      itemNote: "包含接机举牌服务。"
+      itemNote: "包含举牌接机服务。"
     },
     vehicles: {
       title: "车型",
-      subtitle: "适合个人、家庭与多人出行。",
+      subtitle: "适合个人、家庭和多人团队出行。",
       items: commonVehicles
     },
     reviews: {
       title: "用户评价",
-      subtitle: "海外旅客一致好评。",
+      subtitle: "来自海外旅客的真实好评。",
       items: [
-        "司机举着姓名牌在出口等候。",
-        "接机过程非常顺畅。",
-        "车辆干净，司机专业。"
+        "司机举着姓名牌在出口等待。",
+        "从机场到酒店非常顺利。",
+        "车辆干净，司机很专业。"
       ]
     },
     booking: {
       title: "预约接送",
-      subtitle: "发送行程信息，WhatsApp 迅速报价。",
+      subtitle: "发送航班、酒店和人数信息，我们会通过 WhatsApp 快速报价。",
       fields: {
         airport: "机场",
         flight: "航班号",
-        hotel: "酒店",
+        hotel: "酒店或地址",
         passengers: "人数",
         luggage: "行李"
       },
       placeholders: {
-        airport: "成田 或 羽田",
+        airport: "成田或羽田",
         flight: "JL123",
         hotel: "新宿酒店",
         passengers: "2",
-        luggage: "3 个行李箱"
+        luggage: "3个行李箱"
       },
       button: "通过 WhatsApp 发送",
-      messageHeader: "您好，我需要机场接送"
+      messageHeader: "您好，我需要东京机场接送报价。"
     },
     narita: {
       heroTitle: "成田机场到东京接送",
-      heroSubtitle: "成田机场专车接机，固定价格，英文司机。",
+      heroSubtitle: "成田机场私人接机，举牌迎接，固定报价，适合家庭、商务和多人行李。",
       sectionTitle: "成田机场接送",
-      travelTime: "成田到东京通常 60–90 分钟，视路况而定。"
+      travelTime: "成田机场到东京市区通常需要60到90分钟，具体时间取决于路况。"
     },
     haneda: {
       heroTitle: "羽田机场到东京接送",
-      heroSubtitle: "羽田机场快速接机，举牌迎接服务。",
+      heroSubtitle: "羽田机场到东京酒店的快速专车接送，司机准时等候，WhatsApp 即时沟通。",
       sectionTitle: "羽田机场接送",
-      travelTime: "羽田到东京通常 30–40 分钟。"
+      travelTime: "羽田机场到东京市区通常需要30到60分钟，具体时间取决于路况。"
     },
     driver: {
-      heroTitle: "东京私人司机服务",
-      heroSubtitle: "适合城市游、富士山一日游与小时包车。",
+      heroTitle: "东京中文包车司机",
+      heroSubtitle: "适合机场接送、东京市区观光、富士山一日游和小时包车。",
       servicesTitle: "私人司机服务",
-      services: ["东京市内游", "富士山一日游", "小时包车"]
+      services: ["东京市区观光", "富士山一日游", "小时包车"]
     }
   }
 };

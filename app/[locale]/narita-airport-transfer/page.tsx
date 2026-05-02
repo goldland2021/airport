@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Vehicles from "@/components/Vehicles";
 import Booking from "@/components/Booking";
 import { getDictionary, locales, type Locale } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params
@@ -12,11 +13,14 @@ export async function generateMetadata({
   const locale = locales.includes(params.locale) ? params.locale : "en";
   const dict = getDictionary(locale);
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/narita-airport-transfer",
     title: dict.meta.naritaTitle,
-    description: dict.meta.homeDescription,
-    keywords: dict.meta.keywords
-  };
+    description: dict.meta.naritaDescription,
+    keywords: dict.meta.keywords,
+    image: "/images/narita-airport.jpg"
+  });
 }
 
 export default function NaritaPage({ params }: { params: { locale: Locale } }) {

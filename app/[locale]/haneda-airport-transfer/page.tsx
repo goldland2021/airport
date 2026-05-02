@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Vehicles from "@/components/Vehicles";
 import Booking from "@/components/Booking";
 import { getDictionary, locales, type Locale } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params
@@ -12,11 +13,14 @@ export async function generateMetadata({
   const locale = locales.includes(params.locale) ? params.locale : "en";
   const dict = getDictionary(locale);
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/haneda-airport-transfer",
     title: dict.meta.hanedaTitle,
-    description: dict.meta.homeDescription,
-    keywords: dict.meta.keywords
-  };
+    description: dict.meta.hanedaDescription,
+    keywords: dict.meta.keywords,
+    image: "/images/haneda-airport.jpg"
+  });
 }
 
 export default function HanedaPage({ params }: { params: { locale: Locale } }) {

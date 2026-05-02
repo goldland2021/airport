@@ -4,6 +4,7 @@ import Services from "@/components/Services";
 import Vehicles from "@/components/Vehicles";
 import Booking from "@/components/Booking";
 import { getDictionary, locales, type Locale } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params
@@ -13,11 +14,14 @@ export async function generateMetadata({
   const locale = locales.includes(params.locale) ? params.locale : "en";
   const dict = getDictionary(locale);
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/tokyo-private-driver",
     title: dict.meta.driverTitle,
-    description: dict.meta.homeDescription,
-    keywords: dict.meta.keywords
-  };
+    description: dict.meta.driverDescription,
+    keywords: dict.meta.keywords,
+    image: "/images/tokyo-driver.jpg"
+  });
 }
 
 export default function PrivateDriverPage({ params }: { params: { locale: Locale } }) {
@@ -38,6 +42,7 @@ export default function PrivateDriverPage({ params }: { params: { locale: Locale
         subtitle={dict.services.subtitle}
         services={dict.driver.services}
         itemNote={dict.services.itemNote}
+        locale={locale}
       />
       <Vehicles
         title={dict.vehicles.title}

@@ -17,7 +17,7 @@ export default function LanguageSwitcher() {
   return (
     <div className="fixed top-5 right-5 z-50 flex items-center gap-2 rounded-full border border-clay/60 bg-white/90 p-1 shadow-soft">
       {locales.map((locale) => {
-        const href = `/${locale}${basePath}` || `/${locale}`;
+        const href = `/${locale}${basePath || ""}`;
         const label = labels[locale] ?? locale.toUpperCase();
 
         return (

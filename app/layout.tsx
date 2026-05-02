@@ -1,15 +1,29 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
   title: {
-    default: "Tokyo Airport Transfer",
-    template: "%s | Tokyo Airport Transfer"
+    default: siteName,
+    template: `%s | ${siteName}`
   },
-  description: "Private airport transfer service in Tokyo. Pickup from Narita and Haneda airport with English speaking drivers."
+  description:
+    "Private Tokyo airport transfer service for Narita and Haneda airport pickup with fixed pricing and WhatsApp booking.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  }
 };
 
 export default function RootLayout({
