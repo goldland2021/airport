@@ -11,7 +11,8 @@ const pageLabels = {
     eyebrow: "Instant Quote",
     quoteTitle: "Book Your Transfer Now",
     quoteCopy: "Fill in your trip details and get an instant quote on WhatsApp.",
-    directNote: "Opens in WhatsApp after submission to chat directly with the driver.",
+    directNote:
+      "Opens in WhatsApp after submission to chat directly with the driver. Optional name-sign meet-and-greet at the arrival gate: +¥2,000—please mention it if you want this service.",
     waitTitle: "Free Waiting Time Policy",
     pickupNote: "Waiting time starts from flight landing for pickup, or scheduled time for drop-off.",
     delayNote: "No worries about flight delays. The driver adjusts based on the actual landing time.",
@@ -27,7 +28,8 @@ const pageLabels = {
     eyebrow: "すぐに見積もり",
     quoteTitle: "送迎を今すぐ予約",
     quoteCopy: "旅程情報を入力すると、WhatsAppですぐに見積もりできます。",
-    directNote: "送信後、WhatsAppでドライバーと直接やり取りできます。",
+    directNote:
+      "送信後、WhatsAppでドライバーと直接やり取りできます。到着ゲートでのネームプレートお迎えはオプション（+2,000円）です。ご希望の場合はメッセージでお知らせください。",
     waitTitle: "無料待機時間ポリシー",
     pickupNote: "お迎えは実際のフライト到着時刻から、お送りは予約時刻から待機時間を計算します。",
     delayNote: "フライト遅延時もご安心ください。到着時刻に合わせてドライバーが調整します。",
@@ -43,7 +45,8 @@ const pageLabels = {
     eyebrow: "快速报价",
     quoteTitle: "立即预约接送服务",
     quoteCopy: "填写行程信息，通过 WhatsApp 快速获取报价。",
-    directNote: "提交后会打开 WhatsApp，方便直接和司机沟通。",
+    directNote:
+      "提交后会打开 WhatsApp，方便直接和司机沟通。到达口举牌接机为可选服务，需要时另加 2,000 日元，请在沟通时说明。",
     waitTitle: "免费等待时间政策",
     pickupNote: "接机等待时间从航班实际落地算起，送机从预约时间算起。",
     delayNote: "航班延误不用担心，司机会根据实际落地时间调整接机。",

@@ -1,4 +1,4 @@
-﻿type ServicePolicyProps = {
+type ServicePolicyProps = {
   title?: string;
   subtitle?: string;
   compact?: boolean;
@@ -53,11 +53,11 @@ export default function ServicePolicy({
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="inline-flex h-2 w-2 rounded-full bg-ember mt-2 flex-shrink-0" />
-                  <span><strong>包含服务:</strong> 到达口举牌接机</span>
+                  <span><strong>可选服务:</strong> 到达口举牌接机，另加 2,000 日元（需在预约时说明）</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="inline-flex h-2 w-2 rounded-full bg-ember mt-2 flex-shrink-0" />
-                  <span>司机在行李提取区等候，手持姓名牌</span>
+                  <span>选择举牌服务时，司机在行李提取区举牌等候</span>
                 </li>
               </ul>
             </div>
