@@ -76,6 +76,41 @@ function configuredResponse(message: string): AnalyticsSummary {
   };
 }
 
+function getMissingConfigNames(propertyId: string, hasCredentials: boolean) {
+  const missing: string[] = [];
+
+  if (!propertyId) missing.push("GA_PROPERTY_ID");
+  if (!hasCredentials) missing.push("GA_CLIENT_EMAIL", "GA_PRIVATE_KEY");
+
+  return missing;
+}
+
+function hasCredentialConfig() {
+  if (process.env.GA_SERVICE_ACCOUNT_JSON || process.env.GOOGLE_ANALYTICS_SERVICE_ACCOUNT_JSON) {
+    return true;
+  }
+
+  const clientEmail =
+    process.env.GA_CLIENT_EMAIL || process.env.GOOGLE_ANALYTICS_CLIENT_EMAIL || "";
+  const privateKey =
+    process.env.GA_PRIVATE_KEY || process.env.GOOGLE_ANALYTICS_PRIVATE_KEY || "";
+
+  return Boolean(clientEmail && privateKey);
+}
+
+function formatAnalyticsError(error: unknown) {
+  const message = error instanceof Error ? error.message : String(error || "");
+
+  if (!message || message === "undefined undefined: undefined") {
+    return [
+      "GA4 Data API 暂时无法读取数据。",
+      "请检查 GA_PROPERTY_ID 是否是数字 Property ID，服务账号是否已加入 GA4 property 并拥有 Viewer 权限，GA_PRIVATE_KEY 是否完整包含换行符。"
+    ].join(" ");
+  }
+
+  return message;
+}
+
 function getMetric(row: GaRow | undefined, index: number) {
   return Number(row?.metricValues?.[index]?.value ?? 0);
 }
@@ -97,15 +132,19 @@ function getCredentials() {
     process.env.GA_SERVICE_ACCOUNT_JSON || process.env.GOOGLE_ANALYTICS_SERVICE_ACCOUNT_JSON || "";
 
   if (jsonValue) {
-    const parsed = JSON.parse(jsonValue) as {
-      client_email?: string;
-      private_key?: string;
-    };
-    if (parsed.client_email && parsed.private_key) {
-      return {
-        client_email: parsed.client_email,
-        private_key: parsed.private_key.replace(/\\n/g, "\n")
+    try {
+      const parsed = JSON.parse(jsonValue) as {
+        client_email?: string;
+        private_key?: string;
       };
+      if (parsed.client_email && parsed.private_key) {
+        return {
+          client_email: parsed.client_email,
+          private_key: parsed.private_key.replace(/\\n/g, "\n")
+        };
+      }
+    } catch {
+      return null;
     }
   }
 
@@ -124,11 +163,16 @@ function getCredentials() {
 
 export async function getAnalyticsSummary(days = 30): Promise<AnalyticsSummary> {
   const propertyId = getPropertyId();
+  const credentialConfigExists = hasCredentialConfig();
   const credentials = getCredentials();
 
   if (!propertyId || !credentials) {
+    const missing = getMissingConfigNames(propertyId, credentialConfigExists);
+
     return configuredResponse(
-      "GA4 Data API is not configured yet. Add GA_PROPERTY_ID, GA_CLIENT_EMAIL, and GA_PRIVATE_KEY in Vercel environment variables."
+      missing.length
+        ? `GA4 Data API 还没有连接完成。Vercel 环境变量缺少：${missing.join(", ")}。`
+        : "GA4 Data API 凭证格式不正确。请检查 GA_CLIENT_EMAIL 和 GA_PRIVATE_KEY，或改用完整的 GA_SERVICE_ACCOUNT_JSON。"
     );
   }
 
@@ -215,6 +259,6 @@ export async function getAnalyticsSummary(days = 30): Promise<AnalyticsSummary> 
       }))
     };
   } catch (error) {
-    return configuredResponse(error instanceof Error ? error.message : "Unable to read GA4 statistics.");
+    return configuredResponse(formatAnalyticsError(error));
   }
 }
