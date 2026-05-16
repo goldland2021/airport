@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import { calculateAirportFareEstimate } from "@/lib/airport-pricing";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 import { AIRPORTS, type LatLng, findNearestTollZone } from "@/lib/toll-routes";
 import { geocodeAddressGoogleMaps, getDrivingRouteGoogleMaps } from "@/lib/google-maps-routing";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
@@ -554,6 +555,14 @@ export default function RoutePickerInner({ locale, onRouteCalculated }: RoutePic
               target="_blank"
               rel="noreferrer"
               className="mt-5 inline-flex h-11 w-full items-center justify-center rounded-lg bg-ink px-4 text-sm font-semibold text-white transition hover:bg-ink/90"
+              onClick={() =>
+                trackAnalyticsEvent("route_quote_confirm", {
+                  route_airport: routeResult.airportId,
+                  route_direction: routeResult.direction,
+                  estimate_low_yen: routeResult.estimateLowYen,
+                  estimate_high_yen: routeResult.estimateHighYen
+                })
+              }
             >
               {t.confirm}
             </a>

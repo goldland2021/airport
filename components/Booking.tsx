@@ -2,6 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 import { buildWhatsAppLink, defaultWhatsAppMessage } from "@/lib/whatsapp";
 import type { RouteQuote } from "./RoutePicker";
 import ContactInfo from "./ContactInfo";
@@ -121,6 +122,13 @@ export default function Booking({
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    trackAnalyticsEvent("whatsapp_inquiry_submit", {
+      has_route_quote: Boolean(routeQuote),
+      route_airport: routeQuote?.airportId,
+      route_direction: routeQuote?.direction,
+      estimate_low_yen: routeQuote?.estimateLowYen,
+      estimate_high_yen: routeQuote?.estimateHighYen
+    });
     const href = buildWhatsAppLink(message);
     window.open(href, "_blank", "noopener,noreferrer");
   };

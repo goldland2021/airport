@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
+import { gaMeasurementId } from "@/lib/analytics";
 import { siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
@@ -37,7 +39,7 @@ export default function RootLayout({
       <head>
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-V7EXSKJDYL"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -45,11 +47,14 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-V7EXSKJDYL');
+            gtag('config', '${gaMeasurementId}', { send_page_view: false });
           `}
         </Script>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AnalyticsTracker />
+        {children}
+      </body>
     </html>
   );
 }
