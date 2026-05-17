@@ -33,7 +33,7 @@ export const homeSeoContent: Record<Locale, HomeSeoContent> = {
   en: {
     routesTitle: "Popular Tokyo Airport Transfer Routes",
     routesSubtitle:
-      "Private airport pickup and drop-off for Tokyo hotels, homes, apartments, and family trips. Quotes are based on route distance, airport, vehicle size, luggage, and arrival time.",
+      "Private airport pickup, Tokyo hotel transfers, Shinkansen station pickup, and Mt Fuji day trips for hotels, homes, apartments, and family travel. Quotes are based on route distance, vehicle size, luggage, and arrival time.",
     routes: [
       {
         title: "Narita Airport to Tokyo hotels",
@@ -54,9 +54,27 @@ export const homeSeoContent: Record<Locale, HomeSeoContent> = {
         href: "/narita-airport-transfer"
       },
       {
+        title: "Tokyo hotel to hotel transfer",
+        description:
+          "Private hotel transfer for travelers moving between Tokyo hotels, apartments, Shinjuku, Ginza, Shibuya, Tokyo Station, or Shinagawa.",
+        href: "/tokyo-private-driver"
+      },
+      {
+        title: "Tokyo Station or Shinagawa Shinkansen pickup",
+        description:
+          "Door-to-door pickup and drop-off for Shinkansen travelers arriving at Tokyo Station, Shinagawa Station, or nearby hotels.",
+        href: "/tokyo-private-driver"
+      },
+      {
         title: "Toyota Alphard airport transfer",
         description:
           "Comfortable private car service for couples, families with children, and travelers carrying multiple suitcases.",
+        href: "/tokyo-private-driver"
+      },
+      {
+        title: "Mt Fuji day trip with English driver",
+        description:
+          "Private Mt Fuji day trip from Tokyo with an English-speaking driver, flexible pickup from hotels, and comfortable Toyota Alphard or Hiace options.",
         href: "/tokyo-private-driver"
       }
     ],
@@ -88,13 +106,18 @@ export const homeSeoContent: Record<Locale, HomeSeoContent> = {
         question: "Which vehicles can I book?",
         answer:
           "Common vehicles include luxury sedans, Toyota Alphard, and Toyota Hiace. We recommend the vehicle based on passenger count, luggage, child seats, and comfort needs."
+      },
+      {
+        question: "Can I book hotel transfers, Shinkansen pickup, or a Mt Fuji day trip?",
+        answer:
+          "Yes. Besides Narita and Haneda airport transfers, we can arrange Tokyo hotel-to-hotel transfers, Tokyo Station or Shinagawa Shinkansen pickup, and private Mt Fuji day trips with English-speaking drivers."
       }
     ]
   },
   ja: {
     routesTitle: "東京の人気空港送迎ルート",
     routesSubtitle:
-      "成田空港・羽田空港と東京のホテル、自宅、民泊、家族旅行に対応するプライベート送迎です。料金は距離、空港、車種、荷物、到着時間をもとに見積もります。",
+      "成田空港・羽田空港の送迎、東京ホテル間移動、新幹線駅送迎、富士山日帰り観光に対応するプライベート送迎です。料金は距離、車種、荷物、到着時間をもとに見積もります。",
     routes: [
       {
         title: "成田空港から東京のホテルへ",
@@ -115,9 +138,27 @@ export const homeSeoContent: Record<Locale, HomeSeoContent> = {
         href: "/narita-airport-transfer"
       },
       {
+        title: "東京ホテル間の移動",
+        description:
+          "新宿、銀座、渋谷、東京駅、品川周辺など、東京のホテル・民泊・アパート間のプライベート移動に対応します。",
+        href: "/tokyo-private-driver"
+      },
+      {
+        title: "東京駅・品川駅の新幹線送迎",
+        description:
+          "東京駅、品川駅、新幹線到着後のホテル送迎や、ホテルから駅までの移動に対応します。",
+        href: "/tokyo-private-driver"
+      },
+      {
         title: "アルファード空港送迎",
         description:
           "カップル、お子様連れのご家族、スーツケースが多い旅行者に使いやすいプライベートカーです。",
+        href: "/tokyo-private-driver"
+      },
+      {
+        title: "英語ドライバーの富士山日帰り",
+        description:
+          "東京ホテル発着の富士山日帰りプライベートツアー。英語対応ドライバーとアルファード、ハイエースなどを手配できます。",
         href: "/tokyo-private-driver"
       }
     ],
@@ -148,13 +189,18 @@ export const homeSeoContent: Record<Locale, HomeSeoContent> = {
         question: "どの車種を予約できますか？",
         answer:
           "セダン、トヨタ アルファード、トヨタ ハイエースなどをご用意できます。人数、荷物、チャイルドシート、快適性に合わせて提案します。"
+      },
+      {
+        question: "ホテル間移動、新幹線駅送迎、富士山日帰りも予約できますか？",
+        answer:
+          "はい。成田空港・羽田空港の送迎以外に、東京ホテル間移動、東京駅・品川駅の新幹線送迎、英語対応ドライバーによる富士山日帰りも相談できます。"
       }
     ]
   },
   zh: {
     routesTitle: "东京热门机场接送路线",
     routesSubtitle:
-      "提供成田机场、羽田机场与东京酒店、民宿、公寓、家庭出行之间的私人接送。报价会参考路线距离、机场、车型、行李数量和到达时间。",
+      "提供成田机场、羽田机场、东京酒店移动、新干线站接送和富士山一日游之间的私人接送。报价会参考路线距离、车型、行李数量和到达时间。",
     routes: [
       {
         title: "成田机场到东京酒店",
@@ -175,9 +221,27 @@ export const homeSeoContent: Record<Locale, HomeSeoContent> = {
         href: "/narita-airport-transfer"
       },
       {
+        title: "东京酒店到酒店移动",
+        description:
+          "适合新宿、银座、涩谷、东京站、品川等区域之间的酒店换酒店、民宿、公寓点对点移动。",
+        href: "/tokyo-private-driver"
+      },
+      {
+        title: "东京站、品川站新干线接送",
+        description:
+          "适合搭乘新干线抵达东京站、品川站后的酒店接送，也可安排从东京酒店前往新干线车站。",
+        href: "/tokyo-private-driver"
+      },
+      {
         title: "Toyota Alphard 机场接送",
         description:
           "适合情侣、亲子家庭和携带多件行李的旅客，也可根据人数和行李安排海狮等车型。",
+        href: "/tokyo-private-driver"
+      },
+      {
+        title: "富士山一日游英文司机",
+        description:
+          "东京酒店出发的富士山一日游包车，可安排中文或英文沟通，适合家庭、朋友和多人团队。",
         href: "/tokyo-private-driver"
       }
     ],
@@ -208,6 +272,11 @@ export const homeSeoContent: Record<Locale, HomeSeoContent> = {
         question: "可以安排哪些车型？",
         answer:
           "常用车型包括轿车、Toyota Alphard 和 Toyota Hiace。我们会根据人数、行李、儿童座椅和舒适度需求推荐车型。"
+      },
+      {
+        question: "可以预约酒店移动、新干线接送或富士山一日游吗？",
+        answer:
+          "可以。除了成田机场和羽田机场接送，也可以安排东京酒店到酒店移动、东京站或品川站新干线接送，以及富士山一日游包车，可中文和英文沟通。"
       }
     ]
   }

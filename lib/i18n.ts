@@ -115,13 +115,22 @@ const dictionaries: Record<Locale, Dictionary> = {
     meta: {
       homeTitle: "Tokyo Airport Transfer | Narita & Haneda Private Car",
       homeDescription:
-        "Book a private Tokyo airport transfer from Narita or Haneda with Toyota Alphard and Hiace options. Fixed yen quotes, 24/7 WhatsApp support, English-speaking drivers, and 90 min free airport pickup waiting.",
+        "Book a private Tokyo airport transfer from Narita or Haneda, Tokyo hotel transfers, and Mt Fuji day trips with English-speaking drivers. Fixed yen quotes, Toyota Alphard and Hiace options, 24/7 WhatsApp support.",
       keywords: [
         "Tokyo airport transfer",
         "Narita airport transfer",
         "Haneda airport transfer",
         "Tokyo airport pickup",
         "Tokyo private driver",
+        "Tokyo English driver",
+        "Tokyo hotel transfer",
+        "Tokyo hotel to hotel transfer",
+        "Tokyo hotel pickup",
+        "Tokyo Shinkansen station transfer",
+        "Tokyo Station transfer",
+        "Shinagawa Station transfer",
+        "Mt Fuji day trip private driver",
+        "Mt Fuji day trip from Tokyo",
         "Narita to Tokyo private car",
         "Haneda to Tokyo private car",
         "Toyota Alphard airport transfer Tokyo",
@@ -138,7 +147,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Fast private Haneda Airport transfer to Ginza, Shinjuku, Shibuya, Shinagawa, and central Tokyo hotels. Door-to-door pickup, English-speaking driver, and transparent yen pricing.",
       driverTitle: "Tokyo Private Driver Service | Airport, Tours & Charters",
       driverDescription:
-        "Hire a Tokyo private driver for airport transfers, city tours, Mt Fuji day trips, hourly charters, Toyota Alphard rides, and WhatsApp booking."
+        "Hire a Tokyo private driver for airport transfers, hotel transfers, Shinkansen station pickup, city tours, Mt Fuji day trips, hourly charters, Toyota Alphard rides, and WhatsApp booking."
     },
     hero: {
       title: "Tokyo Airport Transfer",
@@ -161,7 +170,9 @@ const dictionaries: Record<Locale, Dictionary> = {
         "Narita Airport to Tokyo hotel",
         "Haneda Airport to Tokyo hotel",
         "Tokyo hotel to Narita Airport",
-        "Tokyo hotel to Haneda Airport"
+        "Tokyo hotel to Haneda Airport",
+        "Tokyo hotel to hotel transfer",
+        "Tokyo Station or Shinagawa Shinkansen pickup"
       ],
       itemNote: "Door-to-door, on time, and stress free."
     },
@@ -227,22 +238,31 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     driver: {
       heroTitle: "Tokyo Private Driver Service",
-      heroSubtitle: "Flexible private car service for airport transfers, Tokyo tours, day trips, and hourly charters.",
+      heroSubtitle: "Flexible private car service with English-speaking drivers for airport transfers, hotel transfers, Tokyo tours, Mt Fuji day trips, and hourly charters.",
       servicesTitle: "Private Driver Services",
-      services: ["Tokyo city tour", "Mt Fuji day trip", "Hourly private car charter"]
+      services: ["Tokyo city tour", "Mt Fuji day trip", "Hotel transfer", "Shinkansen station pickup", "Hourly private car charter"]
     }
   },
   ja: {
     meta: {
       homeTitle: "東京空港送迎 | 成田・羽田のプライベート送迎",
       homeDescription:
-        "成田空港・羽田空港から東京市内ホテルまでのプライベート空港送迎。固定料金、英語対応ドライバー、WhatsAppで簡単予約。到着ゲートでのネームプレートお迎えはオプション（ご希望の場合 +2,000円）。",
+        "成田空港・羽田空港から東京市内ホテルまでの空港送迎、ホテル間移動、富士山日帰り観光に対応。固定料金、英語対応ドライバー、WhatsAppで簡単予約。",
       keywords: [
         "東京 空港送迎",
         "成田空港 送迎",
         "羽田空港 送迎",
         "東京 空港ピックアップ",
         "東京 プライベートドライバー",
+        "東京 英語ドライバー",
+        "東京 ホテル送迎",
+        "東京 ホテル間移動",
+        "東京 ホテル移動",
+        "東京駅 送迎",
+        "品川駅 送迎",
+        "新幹線駅 送迎",
+        "富士山 日帰り",
+        "富士山 日帰り 英語ドライバー",
         "成田 東京 ハイヤー",
         "羽田 東京 ハイヤー"
       ],
@@ -254,7 +274,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "羽田空港から東京市内ホテルまでのスムーズなプライベート送迎。英語対応ドライバー、明朗な固定料金。到着ゲートでのネームプレートお迎えはオプション（+2,000円）。",
       driverTitle: "東京プライベートドライバー | 空港送迎・観光・貸切",
       driverDescription:
-        "東京のプライベートドライバーサービス。空港送迎、市内観光、富士山日帰り、時間貸切に対応。"
+        "東京のプライベートドライバーサービス。空港送迎、ホテル間移動、新幹線駅送迎、市内観光、富士山日帰り、時間貸切に対応。英語対応ドライバーの手配も可能です。"
     },
     hero: {
       title: "東京空港送迎",
@@ -277,7 +297,9 @@ const dictionaries: Record<Locale, Dictionary> = {
         "成田空港から東京ホテル",
         "羽田空港から東京ホテル",
         "東京ホテルから成田空港",
-        "東京ホテルから羽田空港"
+        "東京ホテルから羽田空港",
+        "東京ホテル間の移動",
+        "東京駅・品川駅の新幹線送迎"
       ],
       itemNote: "ドアツードアで、時間通りに安心してご利用いただけます。"
     },
@@ -343,16 +365,16 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     driver: {
       heroTitle: "東京プライベートドライバー",
-      heroSubtitle: "空港送迎、東京観光、日帰り旅行、時間貸切に対応するプライベートカーサービス。",
+      heroSubtitle: "英語対応ドライバーによる空港送迎、ホテル間移動、東京観光、富士山日帰り、時間貸切のプライベートカーサービス。",
       servicesTitle: "プライベートドライバーサービス",
-      services: ["東京市内観光", "富士山日帰り旅行", "時間貸切チャーター"]
+      services: ["東京市内観光", "富士山日帰り旅行", "ホテル間移動", "新幹線駅送迎", "時間貸切チャーター"]
     }
   },
   zh: {
     meta: {
       homeTitle: "东京机场接送 | 成田与羽田机场中文包车",
       homeDescription:
-        "东京机场接送服务，覆盖成田机场和羽田机场到东京酒店。固定报价、WhatsApp 快速联系，可中文沟通。到达口举牌接机为可选服务，需要时另加 2,000 日元。",
+        "东京机场接送服务，覆盖成田机场、羽田机场、东京酒店移动、新干线站接送和富士山一日游。固定报价、WhatsApp 快速联系，可中文和英文沟通。",
       keywords: [
         "东京机场接送",
         "东京接机",
@@ -360,6 +382,17 @@ const dictionaries: Record<Locale, Dictionary> = {
         "羽田机场接送",
         "东京包车",
         "东京中文司机",
+        "东京英文司机",
+        "东京酒店移动",
+        "东京酒店接送",
+        "东京酒店换酒店",
+        "东京酒店到酒店接送",
+        "东京新干线接送",
+        "东京站接送",
+        "品川站接送",
+        "富士山一日游",
+        "富士山一日游包车",
+        "富士山一日游英文司机",
         "成田到东京包车",
         "羽田到东京包车"
       ],
@@ -371,7 +404,7 @@ const dictionaries: Record<Locale, Dictionary> = {
         "羽田机场到东京市区酒店的专车接送服务。准时接机、价格透明，可通过 WhatsApp 预约。到达口举牌接机为可选，另加 2,000 日元。",
       driverTitle: "东京中文包车司机 | 接送机、旅游与小时包车",
       driverDescription:
-        "东京私人包车司机服务，适合机场接送、市区观光、富士山一日游和小时包车。车辆干净，WhatsApp 快速沟通。"
+        "东京私人包车司机服务，适合机场接送、酒店移动、新干线站接送、市区观光、富士山一日游和小时包车。可中文和英文沟通，WhatsApp 快速联系。"
     },
     hero: {
       title: "东京机场接送",
@@ -394,7 +427,9 @@ const dictionaries: Record<Locale, Dictionary> = {
         "成田机场到东京酒店",
         "羽田机场到东京酒店",
         "东京酒店到成田机场",
-        "东京酒店到羽田机场"
+        "东京酒店到羽田机场",
+        "东京酒店到酒店移动",
+        "东京站、品川站新干线接送"
       ],
       itemNote: "点对点直达，准时省心。"
     },
@@ -460,9 +495,9 @@ const dictionaries: Record<Locale, Dictionary> = {
     },
     driver: {
       heroTitle: "东京中文包车司机",
-      heroSubtitle: "适合机场接送、东京市区观光、富士山一日游和小时包车。",
+      heroSubtitle: "适合机场接送、酒店移动、新干线站接送、东京市区观光、富士山一日游和小时包车，可中文和英文沟通。",
       servicesTitle: "私人司机服务",
-      services: ["东京市区观光", "富士山一日游", "小时包车"]
+      services: ["东京市区观光", "富士山一日游", "酒店移动", "新干线站接送", "小时包车"]
     }
   }
 };

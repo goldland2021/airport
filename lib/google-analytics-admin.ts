@@ -16,43 +16,15 @@ type GaReport = {
   totals?: { metricValues?: GaMetricValue[] }[];
 };
 
-export type CountryStat = {
-  country: string;
-  activeUsers: number;
-};
-
-export type EventStat = {
-  eventName: string;
-  label: string;
-  count: number;
-};
-
-export type DailyStat = {
-  date: string;
-  activeUsers: number;
-  sessions: number;
-};
-
 export type AnalyticsSummary = {
   configured: boolean;
   message?: string;
   propertyId?: string;
   dateRangeLabel: string;
   totals: {
-    activeUsers: number;
-    newUsers: number;
-    sessions: number;
     pageViews: number;
+    whatsappClicks: number;
   };
-  countries: CountryStat[];
-  events: EventStat[];
-  daily: DailyStat[];
-};
-
-const trackedEventLabels: Record<string, string> = {
-  whatsapp_click: "WhatsApp button clicks",
-  whatsapp_inquiry_submit: "Booking form inquiries",
-  route_quote_confirm: "Map quote confirmations"
 };
 
 function configuredResponse(message: string): AnalyticsSummary {
@@ -61,18 +33,9 @@ function configuredResponse(message: string): AnalyticsSummary {
     message,
     dateRangeLabel: "Last 30 days",
     totals: {
-      activeUsers: 0,
-      newUsers: 0,
-      sessions: 0,
-      pageViews: 0
-    },
-    countries: [],
-    events: Object.entries(trackedEventLabels).map(([eventName, label]) => ({
-      eventName,
-      label,
-      count: 0
-    })),
-    daily: []
+      pageViews: 0,
+      whatsappClicks: 0
+    }
   };
 }
 
@@ -113,11 +76,6 @@ function formatAnalyticsError(error: unknown) {
 
 function getMetric(row: GaRow | undefined, index: number) {
   return Number(row?.metricValues?.[index]?.value ?? 0);
-}
-
-function formatDate(value: string) {
-  if (value.length !== 8) return value;
-  return `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`;
 }
 
 function getPropertyId() {
@@ -182,24 +140,11 @@ export async function getAnalyticsSummary(days = 30): Promise<AnalyticsSummary> 
     const property = `properties/${propertyId}`;
     const dateRanges = [{ startDate: `${days}daysAgo`, endDate: "today" }];
 
-    const [totalsReport, countryReport, eventReport, dailyReport] = await Promise.all([
+    const [totalsReport, eventReport] = await Promise.all([
       client.runReport({
         property,
         dateRanges,
-        metrics: [
-          { name: "activeUsers" },
-          { name: "newUsers" },
-          { name: "sessions" },
-          { name: "screenPageViews" }
-        ]
-      }),
-      client.runReport({
-        property,
-        dateRanges,
-        dimensions: [{ name: "country" }],
-        metrics: [{ name: "activeUsers" }],
-        orderBys: [{ metric: { metricName: "activeUsers" }, desc: true }],
-        limit: 12
+        metrics: [{ name: "screenPageViews" }]
       }),
       client.runReport({
         property,
@@ -210,53 +155,29 @@ export async function getAnalyticsSummary(days = 30): Promise<AnalyticsSummary> 
           filter: {
             fieldName: "eventName",
             inListFilter: {
-              values: Object.keys(trackedEventLabels)
+              values: ["whatsapp_click"]
             }
           }
         }
-      }),
-      client.runReport({
-        property,
-        dateRanges: [{ startDate: "13daysAgo", endDate: "today" }],
-        dimensions: [{ name: "date" }],
-        metrics: [{ name: "activeUsers" }, { name: "sessions" }],
-        orderBys: [{ dimension: { dimensionName: "date" } }]
       })
     ]);
 
     const totals = (totalsReport[0] as GaReport).rows?.[0];
-    const countryRows = (countryReport[0] as GaReport).rows ?? [];
     const eventRows = (eventReport[0] as GaReport).rows ?? [];
-    const dailyRows = (dailyReport[0] as GaReport).rows ?? [];
 
     const eventCounts = new Map(
       eventRows.map((row) => [row.dimensionValues?.[0]?.value ?? "", getMetric(row, 0)])
     );
+    const whatsappClicks = eventCounts.get("whatsapp_click") ?? 0;
 
     return {
       configured: true,
       propertyId,
       dateRangeLabel: `Last ${days} days`,
       totals: {
-        activeUsers: getMetric(totals, 0),
-        newUsers: getMetric(totals, 1),
-        sessions: getMetric(totals, 2),
-        pageViews: getMetric(totals, 3)
-      },
-      countries: countryRows.map((row) => ({
-        country: row.dimensionValues?.[0]?.value || "Unknown",
-        activeUsers: getMetric(row, 0)
-      })),
-      events: Object.entries(trackedEventLabels).map(([eventName, label]) => ({
-        eventName,
-        label,
-        count: eventCounts.get(eventName) ?? 0
-      })),
-      daily: dailyRows.map((row) => ({
-        date: formatDate(row.dimensionValues?.[0]?.value ?? ""),
-        activeUsers: getMetric(row, 0),
-        sessions: getMetric(row, 1)
-      }))
+        pageViews: getMetric(totals, 0),
+        whatsappClicks
+      }
     };
   } catch (error) {
     return configuredResponse(formatAnalyticsError(error));
