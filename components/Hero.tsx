@@ -65,7 +65,7 @@ export default function Hero({
               >
                 {ctaLabel}
               </a>
-              <span className="badge">Instant response on WhatsApp</span>
+              <span className="badge">Email: jpairport.com@gmail.com</span>
             </div>
           </div>
           <div className="relative reveal">
