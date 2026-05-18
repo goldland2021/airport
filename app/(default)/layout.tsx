@@ -4,7 +4,7 @@ import Script from "next/script";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { gaMeasurementId } from "@/lib/analytics";
 import { siteName, siteUrl } from "@/lib/seo";
-import "./globals.css";
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
