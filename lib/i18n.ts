@@ -40,7 +40,7 @@ export type Dictionary = {
   vehicles: {
     title: string;
     subtitle: string;
-    items: { name: string; passengers: string; alt: string; image: string }[];
+    items: { name: string; passengers: string; alt: string; image: string; galleryImages?: string[] }[];
   };
   reviews: {
     title: string;
@@ -106,7 +106,8 @@ const commonVehicles = [
     name: "Toyota Hiace",
     passengers: "Up to 8 passengers",
     image: "/images/hiace.jpg",
-    alt: "Toyota Hiace van for Narita and Haneda airport transfer"
+    alt: "Toyota Hiace van for Narita and Haneda airport transfer",
+    galleryImages: ["/images/hiace1.jpg", "/images/hiace2.jpg"]
   }
 ];
 
