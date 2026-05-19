@@ -17,6 +17,7 @@ type LocalizedCityBasics = {
 type CitySeoRoute = {
   title: string;
   description: string;
+  href?: string;
 };
 
 type CitySeoProfile = {
@@ -227,14 +228,16 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
         "Private transfers for Kansai Airport, Itami Airport, Osaka hotels, Kyoto, Nara, Kobe, and Universal Studios Japan.",
       routes: [
         {
-          title: "Kansai Airport to Namba, Umeda, or Shinsaibashi",
+          title: "Kansai Airport to Osaka Namba",
           description:
-            "Door-to-door KIX transfer for central Osaka hotels, shopping areas, families, and late-night arrivals."
+            "Door-to-door KIX transfer for Namba, Dotonbori, Shinsaibashi, central Osaka hotels, families, and late-night arrivals.",
+          href: "/kansai-airport-to-osaka-namba"
         },
         {
-          title: "Kansai Airport to Kyoto or Nara",
+          title: "Kansai Airport to Kyoto",
           description:
-            "Private long-distance transfer for travelers going directly from Kansai Airport to Kyoto hotels, ryokan, or Nara."
+            "Private long-distance transfer for travelers going directly from Kansai Airport to Kyoto hotels, ryokan, Gion, or Kawaramachi.",
+          href: "/kansai-airport-to-kyoto"
         },
         {
           title: "Osaka hotel to Universal Studios Japan",
@@ -365,9 +368,10 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
         "Private transfers for Fukuoka Airport, Hakata, Tenjin, cruise terminals, Dazaifu, Itoshima, Beppu, Yufuin, and Kyushu day trips.",
       routes: [
         {
-          title: "Fukuoka Airport to Hakata or Tenjin",
+          title: "Fukuoka Airport to Hakata",
           description:
-            "Short private transfer from FUK to central Fukuoka hotels, business areas, shopping districts, and restaurants."
+            "Short private transfer from FUK to Hakata Station hotels, Nakasu, Tenjin, business areas, and restaurants.",
+          href: "/fukuoka-airport-to-hakata"
         },
         {
           title: "Fukuoka Airport to cruise terminal",
@@ -446,7 +450,8 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
         {
           title: "Naha Airport to Onna Village resort hotels",
           description:
-            "Private transfer to resort hotels, beach areas, golf resorts, and family-friendly stays in northern Okinawa."
+            "Private transfer to resort hotels, beach areas, golf resorts, and family-friendly stays in northern Okinawa.",
+          href: "/naha-airport-to-onna-village"
         },
         {
           title: "Okinawa Churaumi Aquarium and Motobu day trip",
@@ -505,12 +510,14 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
         "関西空港、伊丹空港、大阪ホテル、京都、奈良、神戸、USJに対応するプライベート送迎です。",
       routes: [
         {
-          title: "関西空港から難波・梅田・心斎橋へ",
-          description: "大阪中心部ホテル、ショッピングエリア、深夜到着、家族旅行に便利なドアツードア送迎です。"
+          title: "関西空港から大阪難波へ",
+          description: "難波、道頓堀、心斎橋、大阪中心部ホテル、深夜到着、家族旅行に便利なドアツードア送迎です。",
+          href: "/kansai-airport-to-osaka-namba"
         },
         {
-          title: "関西空港から京都・奈良へ",
-          description: "関西空港から京都ホテル、旅館、奈良へ直接向かう長距離プライベート送迎です。"
+          title: "関西空港から京都へ",
+          description: "関西空港から京都ホテル、旅館、祇園、河原町へ直接向かう長距離プライベート送迎です。",
+          href: "/kansai-airport-to-kyoto"
         },
         {
           title: "大阪ホテルからUSJへ",
@@ -625,8 +632,9 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
         "福岡空港、博多、天神、クルーズターミナル、太宰府、糸島、別府、由布院、九州日帰り観光に対応します。",
       routes: [
         {
-          title: "福岡空港から博多・天神へ",
-          description: "福岡中心部ホテル、ビジネスエリア、買い物、食事エリアへの短距離送迎です。"
+          title: "福岡空港から博多へ",
+          description: "博多駅ホテル、中洲、天神、福岡中心部への短距離送迎です。",
+          href: "/fukuoka-airport-to-hakata"
         },
         {
           title: "福岡空港からクルーズターミナルへ",
@@ -694,7 +702,8 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
         },
         {
           title: "那覇空港から恩納村リゾートホテルへ",
-          description: "北部リゾートホテル、ビーチ、ゴルフ、家族旅行に便利なプライベート送迎です。"
+          description: "北部リゾートホテル、ビーチ、ゴルフ、家族旅行に便利なプライベート送迎です。",
+          href: "/naha-airport-to-onna-village"
         },
         {
           title: "美ら海水族館・本部の日帰り観光",
@@ -746,12 +755,14 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
       routesSubtitle: "覆蓋關西機場、伊丹機場、大阪酒店、京都、奈良、神戶和日本環球影城的私人專車接送。",
       routes: [
         {
-          title: "關西機場到難波、梅田、心齋橋",
-          description: "適合大阪市區酒店、購物區域、親子家庭和深夜到達的點對點接送。"
+          title: "關西機場到大阪難波",
+          description: "適合難波、道頓堀、心齋橋、大阪市區酒店、親子家庭和深夜到達的點對點接送。",
+          href: "/kansai-airport-to-osaka-namba"
         },
         {
-          title: "關西機場到京都或奈良",
-          description: "適合從關西機場直接前往京都酒店、溫泉旅館或奈良的長距離私人接送。"
+          title: "關西機場到京都",
+          description: "適合從關西機場直接前往京都酒店、旅館、祇園或河原町的長距離私人接送。",
+          href: "/kansai-airport-to-kyoto"
         },
         {
           title: "大阪酒店到日本環球影城",
@@ -864,8 +875,9 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
       routesSubtitle: "覆蓋福岡機場、博多、天神、郵輪碼頭、太宰府、糸島、別府、由布院和九州一日遊。",
       routes: [
         {
-          title: "福岡機場到博多或天神",
-          description: "適合福岡市區酒店、商務區域、購物美食區域的短途私人接送。"
+          title: "福岡機場到博多",
+          description: "適合博多站酒店、中洲、天神和福岡市區的短途私人接送。",
+          href: "/fukuoka-airport-to-hakata"
         },
         {
           title: "福岡機場到郵輪碼頭",
@@ -932,7 +944,8 @@ const seoProfiles: Record<Locale, Record<CityPageSlug, CitySeoProfile>> = {
         },
         {
           title: "那霸機場到恩納村度假酒店",
-          description: "適合北部度假酒店、海灘、親子家庭和高爾夫行程。"
+          description: "適合北部度假酒店、海灘、親子家庭和高爾夫行程。",
+          href: "/naha-airport-to-onna-village"
         },
         {
           title: "美麗海水族館和本部一日遊",
@@ -978,7 +991,7 @@ function unique(items: string[]) {
 function withCityHref(slug: CityPageSlug, routes: CitySeoRoute[]) {
   return routes.map((route) => ({
     ...route,
-    href: cityPath(slug)
+    href: route.href ?? cityPath(slug)
   }));
 }
 

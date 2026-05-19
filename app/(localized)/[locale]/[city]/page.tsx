@@ -131,7 +131,7 @@ function RoutePage({
         imageAlt={content.hero.imageAlt}
         ctaLabel={dict.hero.cta}
         locale={locale}
-        citySlug="tokyo"
+        citySlug={content.citySlug ?? "tokyo"}
       />
 
       <section className="section bg-white">
